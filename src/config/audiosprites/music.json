@@ -1,0 +1,25 @@
+{
+  "resources": [
+    "music.ogg",
+    "music.m4a",
+    "music.mp3",
+    "music.ac3"
+  ],
+  "spritemap": {
+    "music": {
+      "start": 0,
+      "end": 72.07183673469387,
+      "loop": true
+    },
+    "mg-start": {
+      "start": 74,
+      "end": 78.14884353741496,
+      "loop": false
+    },
+    "mg-end": {
+      "start": 80,
+      "end": 87.36,
+      "loop": false
+    }
+  }
+}

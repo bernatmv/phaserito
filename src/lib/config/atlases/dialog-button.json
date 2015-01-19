@@ -1,0 +1,19 @@
+{
+	"frames": {
+		"hover": {
+			"frame": {"x":0, "y":0, "w":307, "h":111},
+			"spriteSourceSize": {"x":0,"y":0,"w":307,"h":111},
+			"sourceSize": {"w":307,"h":111}
+		},
+		"out": {
+			"frame": {"x":0, "y":112, "w":307, "h":111},
+			"spriteSourceSize": {"x":0,"y":0,"w":307,"h":111},
+			"sourceSize": {"w":307,"h":111}
+		}
+	},
+	"meta": {
+		"image": "sprites.png",
+		"size": {"w": 308, "h": 224},
+		"scale": "1"
+	}
+}
