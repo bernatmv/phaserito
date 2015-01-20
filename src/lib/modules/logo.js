@@ -30,7 +30,7 @@ export class Logo extends Phaser.Group {
 	animate() {
 		return new Promise((resolve, reject) => {
 			var logoTween;
-			logoTween = this.game.add.tween(this.logo).to({alpha: 1}, 1700, Phaser.Easing.Quadratic.Out, true);
+			logoTween = this.game.add.tween(this.logo).to({alpha: 1}, 1000, Phaser.Easing.Quadratic.Out, true);
 			logoTween.onComplete.add(() => {
 				this.game.add.tween(this.logoMask).to({ x: this.game.world.centerX - 330}, 1200, Phaser.Easing.Quadratic.InOut, true, 1000, Number.MAX_VALUE).onLoop.add(resolve, this);
 			}, this);

@@ -6,19 +6,19 @@ export class Loading extends Phaser.State {
 		var logo, logoIsDone = false;
 		var loadingText, loadingTextGroup;
 		var loadingTween;
-		// disable CSS animation for the loading
-		var loadingCss = document.getElementById('loadingFigure');
-		if (loadingCss) {
-			loadingCss.style.visibility = 'hidden';
-		}
+		var loadingCss = document.getElementById('loading');
 		
 		var style = {
 			font: "24px Roboto-Light",
 			fill: "#ffffff"
 		};
 
-		// when everything's load, start the game
 		var loadCheck = () => {
+			// disable CSS animation for the loading
+			if (loadingCss) {
+				loadingCss.style.visibility = 'hidden';
+			}
+			// when everything's load, start the game
 			if (this.game.load.hasLoaded && logoIsDone) {
 				this.game.load.onLoadComplete.remove(loadCheck, this);
 				this.game.state.start('Play');
@@ -35,7 +35,7 @@ export class Loading extends Phaser.State {
 		});
 
 		// Set loading text
-		loadingText = this.game.add.text(this.game.width / 2, 450, this.game.i18n `Loading...`, style);
+		loadingText = this.game.add.text(this.game.width / 2, (this.game.width / 2) + 200, this.game.i18n `Loading...`, style);
 		loadingText.anchor.setTo(0.5, 0.5);
 		loadingTween = this.game.add.tween(loadingText)
 			.to({
