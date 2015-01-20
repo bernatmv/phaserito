@@ -6,7 +6,7 @@ export var I18n = function ({locale, messageBundles}) {
 		return passThrough;
 	}
 	else {
-		console.debug("using translator");
+		console.debug("using translator, locale: "+locale);
 		return translate(messageBundles[locale])
 	}
 }

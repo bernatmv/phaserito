@@ -1,4 +1,4 @@
-import es from './es';
+import {es} from './es';
 
 export var MessageBundles = {
 	es
