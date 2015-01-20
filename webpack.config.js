@@ -13,7 +13,7 @@ var entries = {
 		'httpplease',
 		'phaser'
 	],
-	'src/js': './src/js/main.js'
+	'src/js': './js/main.js'
 };
 
 module.exports = {

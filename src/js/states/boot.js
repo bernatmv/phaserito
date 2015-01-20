@@ -1,8 +1,7 @@
 export class Boot extends Phaser.State {
 	preload() {
-		this.game.load.image("loadingBackground", require("../assets/shared/loading-background.png"));
-		this.game.load.image("slotLogo", require("../assets/shared/logo.png"));
-		this.game.load.image("slotLogoBright", require("../assets/shared/logo-bright.png"));
+		this.game.load.image("logo", require("../../assets/img/logo.png"));
+		this.game.load.image("logoBright", require("../../assets/img/logo_bright.png"));
 	}
 	create() {
 		this.game.stage.disableVisibilityChange = true;

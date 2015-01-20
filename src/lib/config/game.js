@@ -18,15 +18,14 @@ module.exports = function (lang) {
 			// 		iPad Mini & Air aspect ratio 4:3
 			canvas:{				
 				height: 480,
-				width: 320
+				width: 320,
+				renderMode: Phaser.AUTO,
+				container: ''
 			}
 		},
 
 		atlases: require("./atlases/index.js")(lang),
-		//audiosprites: require("./audiosprites/index.js")(lang),
-		sprites: require("./sprites.js")(lang),
-		//spritesheets: require("./spritesheets.js")(lang),
-		//sounds: require("./sounds.js")(lang),
+		sprites: require("./sprites.js")(lang)
 	};
 };
 

@@ -2,22 +2,26 @@ import {States} from './states/';
 import {MessageBundles} from '../config/lang/';
 
 class LovelyDogGame extends Phaserito.Game {
-	constructor({ config: gameConfig = {}, lang: gameLang = {} }) {
-		// Merge base and game config
-		var config = Phaserito.Utils.deepExtend(require("../config/game.js")(Phaserito.lang), gameConfig);
+	constructor() {
+		// the default language tags of the game
+		var lang = MessageBundles;
+		// the config of the game
+		var config = require("../config/game.js")(Phaserito.lang);
+		// the states of the game
+		var states = States;
 
-		// Merge base and game strings
-		var lang = Phaserito.Utils.deepExtend(MessageBundles, gameLang);
-
-		super({config, lang, LovelyDogGame.States});
+		super({config, lang, states});
 	}
 }
 
-// includes Phaserito predefined states, changes states as needed
-LovelyDogGame.States = States;
+
+/**
+ *	This will set the layout for the game and initiate it
+ */
+
+
 // we are saving a reference for future use
 Phaserito.LovelyDogGame = LovelyDogGame;
-/* exports = module.exports = LovelyDogGame */
 
 // gets the index from src/ and deploys it at build/
 require("file?name=/[name].[ext]!../index.html");

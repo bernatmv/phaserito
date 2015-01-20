@@ -1,9 +1,9 @@
 module.exports = function (lang) {
 	return {
-		"dialog-button": {
-			data: require("./dialog-button.json"),
+		"logo": {
+			data: require("./logo.json"),
 			format: Phaser.Loader.TEXTURE_ATLAS_JSON_HASH,
-			url: require("../../assets/shared/dialog-button.png"),
+			url: require("../../assets/sprites.png")
 		},
 	};
 };

@@ -4,7 +4,7 @@
 
 import {API} from './modules/api';
 import {Button} from './modules/button';
-import {DialogService} from './modules/dialogService';
+//import {DialogService} from './modules/dialogService';
 import {Game} from './modules/game';
 import {I18n} from './modules/i18n';
 import {Logo} from './modules/logo';
@@ -22,12 +22,12 @@ var config = require("./config/game")(lang);
 exports = module.exports = {
 	API,
 	Button,
-	config,			// pending changes to sprites.js and atlases for the load of default images (logo and win dialog)
-	DialogService,	// pending revision
-	Game,			// pending revision
-	I18n,			
-	lang,			
-	Logo,			// pending revision
+	config,
+//	DialogService,	// pending revision
+	Game,
+	I18n,
+	lang,
+	Logo,
 	MessageBundles,	
 	Toggle,
 	Sprite,
