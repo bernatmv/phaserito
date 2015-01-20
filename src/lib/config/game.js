@@ -20,7 +20,11 @@ module.exports = function (lang) {
 				height: 480,
 				width: 320,
 				renderMode: Phaser.AUTO,
-				container: ''
+				parent: '',
+				state: null,
+				transparent: true,
+				antialias: true,
+				physicsConfig: null
 			}
 		},
 

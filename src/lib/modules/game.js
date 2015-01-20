@@ -15,7 +15,14 @@ export class Game extends Phaser.Game {
 		console.debug("using config:", config);
 
 		// Instantiate game and add config
-		super(config.game.canvas.width, config.game.canvas.height, config.game.canvas.renderMode, config.game.canvas.container);
+		super(config.game.canvas.width, 
+			config.game.canvas.height, 
+			config.game.canvas.renderMode, 
+			config.game.canvas.parent,
+			config.game.canvas.state,
+			config.game.canvas.transparent,
+			config.game.canvas.antialias,
+			config.game.canvas.physicsConfig);
 		this.config.phaserito = config
 
 		// Instantiate translator

@@ -7,7 +7,7 @@ export class Loading extends Phaser.State {
 		var loadingText, loadingTextGroup;
 		var loadingTween;
 		// disable CSS animation for the loading
-		var loadingCss = document.getElementById('loadingAnim');
+		var loadingCss = document.getElementById('loadingFigure');
 		if (loadingCss) {
 			loadingCss.style.visibility = 'hidden';
 		}
