@@ -29,7 +29,6 @@
     "style-loader": "~0.8.2",
     "css-loader": "~0.9.1",
     "file-loader": "~0.8.1",
-    "jade-html-loader": "^0.0.2",
     "webpack": "~1.4.15",
     "webpack-dev-server": "~1.7.0",
     "html-webpack-plugin": "~1.1.0"
