@@ -1,18 +1,18 @@
-## IMPORTANT
-
-Phaserito is heavily based on the work of [Nestor Hernández](https://github.com/nesukun) (Phasercito) and on top of the amazing [Phaser.js](http://phaser.io/) framework by [Richard Davey](https://github.com/photonstorm) of [Photonstorm](http://www.photonstorm.com/). You can find [Phaser on github](https://github.com/photonstorm/phaser) and contact Photonstorm [via Twitter](https://twitter.com/photonstorm) or on the [Phaser forums](http://www.html5gamedevs.com/forum/14-phaser/).
-
-# Both a Phaser.js boilerplate with ES6 and library extension
+# A Phaser.js boilerplate and a library extension
 
 Phaserito is a template to boost any [Phaser.js](http://phaser.io/) game development.
 Phaserito can help you with your starting project structure and build process.
+
+## IMPORTANT
+
+Phaserito is heavily based on the work of **[Nestor Hernández](https://github.com/nesukun)** (Phasercito) and on top of the amazing [Phaser.js](http://phaser.io/) framework by **[Richard Davey](https://github.com/photonstorm)** of [Photonstorm](http://www.photonstorm.com/). You can find **[Phaser on github](https://github.com/photonstorm/phaser)** and contact Photonstorm [via Twitter](https://twitter.com/photonstorm) or on the [Phaser forums](http://www.html5gamedevs.com/forum/14-phaser/).
 
 ## What's in it?
 
 ### Build process
 
 - [x] [NPM](https://github.com/npm/npm) to install dependencies
-- [x] [Gulp](https://github.com/gulpjs/gulp) and [Webpack](https://github.com/webpack) manage the automated build process with bundling and sourcemaps. Production-ready with dedupe and uglify webpack plugins.
+- [x] [Webpack](https://github.com/webpack) and [Gulp](https://github.com/gulpjs/gulp) manage the automated build process with bundling and sourcemaps. Production-ready with dedupe and uglify webpack plugins.
 - [x] [ES6](https://github.com/lukehoban/es6features) via [traceur](https://github.com/google/traceur-compiler)
 - [x] [Webpack Dev Server](https://github.com/webpack/webpack-dev-server) to provide a local server with livereload
 - [x] [Phaser Debug](https://github.com/englercj/phaser-debug) as a debugging tool for the dev server
@@ -27,14 +27,12 @@ Phaserito can help you with your starting project structure and build process.
 
 ### Library extension
 
-- [ ] [Game structure](#structure): boot, loading, menu options and paly documentation
-- [ ] [Scale & fullscreen](#scale) documentation
 - [ ] [Volume manager](#volume) documentation
 - [ ] [Ads manager](#ads) documentation
 - [ ] [Orientation](#orientation) documentation
 - [ ] [Google Analytics](#analytics) documentation
 - [ ] [Crazy Egg](#crazyegg) documentation
-- [ ] [Normal and HD](#hd) version automatization documentation
+- [ ] [SD and HD](#sdhd) version automatization documentation
 
 ### Documentation & examples
 
@@ -43,9 +41,11 @@ This section is still a WIP
 - [ ] [Config](#config) documentation
 - [ ] [Build](#build) documentation
 - [ ] [Dev server](#dev-server) documentation
+- [ ] [Game structure](#structure): boot, loading, menu options and play documentation
+- [ ] [Scale & fullscreen](#scale) documentation
+- [ ] [Aspect ratio](#aspect-ratio) documentation
 - [ ] [Image optimization](#image-optimization) documentation
 - [ ] [Cocoon build](#cocoon-build) documentation
-- [ ] [Aspect ratio](#aspect-ratio) documentation
 
 ## Installing
 
