@@ -4,15 +4,24 @@
  */
 var gulp = require("gulp");
 var gutil = require("gulp-util");
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var zip = require('gulp-zip');
 var localtunnel = require('localtunnel');
 var path = require("path");
+var runSequence = require('run-sequence');
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 // WebPack configuration
 var webpackConfig = require("./webpack.config.js");
 
 gulp.task("default", ["dev-server"]);
+
+gulp.task("build-pro", function(callback) { 
+	runSequence('build',
+		'optimize',
+		callback);
+});
 
 gulp.task("build", function(callback) {
 	var myConfig = Object.create(webpackConfig);
@@ -93,8 +102,17 @@ gulp.task("localtunnel", function(callback) {
 	});
 });
 
+gulp.task("optimize", function(callback) {
+    return gulp.src('./build/**/*.png')
+        .pipe(imagemin({
+            progressive: true,
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('build'));
+});
+
 gulp.task("cocoon", ["build"], function(callback) {
-	return gulp.src('../build/**/*')
+	return gulp.src('./build/**/*')
 		.pipe(zip('dist.zip'))
 		.pipe(gulp.dest('./build'));
 });

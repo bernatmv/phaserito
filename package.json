@@ -18,6 +18,9 @@
     "gulp": "~3.8.10",
     "gulp-util": "~3.0.1",
     "gulp-zip": "~2.0.2",
+    "gulp-imagemin": "^2.1.0",
+    "imagemin-pngquant": "^4.0.0",
+    "run-sequence": "^1.0.2",
     "localtunnel": "~1.5.0",
     "phaser-debug": "~1.1.4",
     "traceur": "0.0.79",
@@ -29,6 +32,7 @@
     "style-loader": "~0.8.2",
     "css-loader": "~0.9.1",
     "file-loader": "~0.8.1",
+    "handlebars-loader": "^0.1.7",
     "webpack": "~1.4.15",
     "webpack-dev-server": "~1.7.0",
     "html-webpack-plugin": "~1.1.0"

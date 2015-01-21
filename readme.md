@@ -19,13 +19,15 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 - [x] [Localtunnel](https://github.com/defunctzombie/localtunnel) to work as a localtunnel for the dev server
 - [x] [Bluebird](https://github.com/petkaantonov/bluebird) to work with Promises
 - [x] [LESS loader](https://github.com/webpack/less-loader) for LESS compilation to CSS
-- [ ] [Gulp Tinypng](https://github.com/creativeaura/gulp-tinypng) for automated image optimization 
+- [x] [Gulp Imagemin](https://github.com/sindresorhus/gulp-imagemin) for automated image optimization using [pngquant](https://github.com/imagemin/imagemin-pngquant)
 - [x] [Gulp Zip](https://github.com/sindresorhus/gulp-zip) for zipping as a Cocoon-ready package
 - [x] [AudioSprite](https://github.com/tonistiigi/audiosprite) to create and work with audiosprites
 - [x] [HttpPlease](https://github.com/matthewwithanm/httpplease.js) for all Http requests
 - [x] [Console Polyfill](https://github.com/paulmillr/console-polyfill) for older IE browsers
 
 ### Library extension
+
+This section is still a WIP
 
 - [ ] [Volume manager](#volume) documentation
 - [ ] [Ads manager](#ads) documentation
