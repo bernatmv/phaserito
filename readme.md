@@ -25,16 +25,17 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 - [x] [HttpPlease](https://github.com/matthewwithanm/httpplease.js) for all Http requests
 - [x] [Console Polyfill](https://github.com/paulmillr/console-polyfill) for older IE browsers
 
-### Library extension
+### Components
 
 This section is still a WIP
 
-- [ ] [Volume manager](#volume) documentation
-- [ ] [Ads manager](#ads) documentation
-- [ ] [Orientation](#orientation) documentation
-- [ ] [Google Analytics](#analytics) documentation
-- [ ] [Crazy Egg](#crazyegg) documentation
-- [ ] [SD and HD](#sdhd) version automatization documentation
+- [ ] [Volume manager](#volume) component
+- [ ] [Fullscreen](#fullscreen) component
+- [ ] [Ads manager](#ads) component
+- [ ] [Orientation](#orientation) component
+- [ ] [Google Analytics](#analytics) component
+- [ ] [Crazy Egg](#crazyegg) component
+- [ ] [SD and HD](#sdhd) automatization component
 
 ### Documentation & examples
 
@@ -44,8 +45,8 @@ This section is still a WIP
 - [ ] [Build](#build) documentation
 - [ ] [Dev server](#dev-server) documentation
 - [ ] [Game structure](#structure): boot, loading, menu options and play documentation
-- [ ] [Scale & fullscreen](#scale) documentation
 - [ ] [Aspect ratio](#aspect-ratio) documentation
+- [ ] [Scale](#scale) documentation
 - [ ] [Image optimization](#image-optimization) documentation
 - [ ] [Cocoon build](#cocoon-build) documentation
 

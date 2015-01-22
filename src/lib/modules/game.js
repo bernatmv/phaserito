@@ -1,9 +1,10 @@
 import {I18n} from './i18n';
 import {MessageBundles} from '../config/lang/';
 import {Utils} from './utils';
+import {ComponentManager} from './componentManager';
 
 export class Game extends Phaser.Game {
-	constructor({ config: gameConfig = {}, lang: gameLang = {}, states: gameStates = {} }) {
+	constructor({ config: gameConfig = {}, lang: gameLang = {}, states: gameStates = {}, theme: theme = 'default' }) {
 		// Get the locale from the URL    /?lang=LOCALE
 		var locale = Utils.getURLParameter("lang") || "en";
 
@@ -34,6 +35,9 @@ export class Game extends Phaser.Game {
 		for (let state in gameStates) {
 			this.state.add(state, gameStates[state]);
 		}
+
+		// start the plugin manager
+		this.component = new ComponentManager({game: self, locale: locale, theme: theme});
 
 		// Start the game with the Boot state
 		this.state.start('Boot');

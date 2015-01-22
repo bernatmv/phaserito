@@ -1,0 +1,16 @@
+{
+	"frames": {
+		"logo": {
+			"frame": {"x":0, "y":201, "w":300, "h":200},
+			"spriteSourceSize": {"x":0,"y":0,"w":300,"h":200},
+			"sourceSize": {"w":300,"h":200}
+		},
+		"bright": {
+			"frame": {"x":0, "y":0, "w":300, "h":200},
+			"spriteSourceSize": {"x":0,"y":0,"w":300,"h":200},
+			"sourceSize": {"w":300,"h":200}
+		}
+
+	}
+}
+
