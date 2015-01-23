@@ -26,7 +26,7 @@ export class Boot extends Phaser.State {
 		else {
 			this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		}
-		this.scale.setMinMax(320, 480, 640, 960);
+//		this.scale.setMinMax(320, 480, 640, 960);
 		this.scale.pageAlignVertically = true; 
 		this.scale.pageAlignHorizontally = true;
 	}

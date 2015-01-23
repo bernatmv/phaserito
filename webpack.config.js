@@ -27,7 +27,7 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.mustache$/i, loader: 'template-html-loader?engine=hogan&foo=5' },
+//			{ test: /\.mustache$/i, loader: 'template-html-loader?engine=hogan&foo=5&raw=true' },
 			{ test: /\.js$/i, exclude: /node_modules/i, loader: 'traceur?experimental&arrayComprehension&runtime' },
 			{ test: /(phaser-arcade-physics|phaser-debug)\.js$/i, loader: 'script' },
 			{ test: /\.json$/i, exclude: /\.audiosprite\.json$/i, loader: 'json' },
