@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 var isDirectory = function (file) {
 	return fs.statSync(path.join('./src/games/', file)).isDirectory();
@@ -27,7 +28,6 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-//			{ test: /\.mustache$/i, loader: 'template-html-loader?engine=hogan&foo=5&raw=true' },
 			{ test: /\.js$/i, exclude: /node_modules/i, loader: 'traceur?experimental&arrayComprehension&runtime' },
 			{ test: /(phaser-arcade-physics|phaser-debug)\.js$/i, loader: 'script' },
 			{ test: /\.json$/i, exclude: /\.audiosprite\.json$/i, loader: 'json' },
@@ -55,6 +55,13 @@ module.exports = {
 			Promise: 'bluebird',
 			phaserito: 'phaserito',
 			Phaserito: 'phaserito'
+		}),
+		new HtmlWebpackPlugin({
+			config: {
+				foo: "templating test"
+			},
+			template: 'src/index.html',
+      		filename: 'index.html'
 		}),
 		function() {
 			this.plugin('done', function(stats) {
