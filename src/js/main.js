@@ -24,7 +24,8 @@ class LovelyDogGame extends Phaserito.Game {
 Phaserito.LovelyDogGame = LovelyDogGame;
 
 // gets the index from src/ and deploys it at build/
-require("file?name=/[name].[ext]!../index.html");
+//require("file?name=/[name].[ext]!../index.html");
+require("file?name=/[name].html!../index.mustache");
 // the default CSS with the default fonts, change if you don't want to use any of Phaserito CSS
 require('../lib/styles.less');
 

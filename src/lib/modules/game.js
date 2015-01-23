@@ -37,7 +37,7 @@ export class Game extends Phaser.Game {
 		}
 
 		// start the plugin manager
-		this.component = new ComponentManager({game: self, locale: locale, theme: theme});
+		this.component = new ComponentManager({game: this, locale: locale, theme: theme});
 
 		// Start the game with the Boot state
 		this.state.start('Boot');

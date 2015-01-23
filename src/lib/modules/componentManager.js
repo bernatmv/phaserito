@@ -19,7 +19,11 @@ export class ComponentManager {
 	// load the specified plugin from the plugin folder, the param have to be a string
 	load(componentName) {
 		if (typeof componentName !== "undefined") {
-			this.components[componentName] = new this.components[componentName]();
+			this.components[componentName] = new this.components[componentName]({ game: this.game, locale: this.locale, theme: this.theme });
 		}
+	}
+
+	get(componentName) {
+		return (this.components[componentName]) ? this.components[componentName] : undefined;
 	}
 }

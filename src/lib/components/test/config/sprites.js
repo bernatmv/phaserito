@@ -1,10 +1,10 @@
 ﻿module.exports = function (theme, lang) {
-	var path = "../../../../assets/themes/"+theme+"/test/";
-	console.log(path + "bruna.png");
+//	var path = "../../../../assets/themes/"+theme+"/test/";
 	return {
-		"explosion1": {
+		"bruna": {
 			"type": "image",
-			"url": require(path + "bruna.png"),
+			"url": require("../../../../assets/themes/"+theme+"/test/bruna.png"),
+//			"url": require(path+"bruna.png"),
 			"overwrite": false
 		}
 	};

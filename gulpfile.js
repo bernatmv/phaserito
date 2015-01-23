@@ -15,15 +15,13 @@ var WebpackDevServer = require("webpack-dev-server");
 // WebPack configuration
 var webpackConfig = require("./webpack.config.js");
 
-gulp.task("default", ["dev-server"]);
+gulp.task("default", ["development"]);
 
-gulp.task("build-pro", function(callback) { 
-	runSequence('build',
-		'optimize',
-		callback);
+gulp.task("build", function() { 
+	runSequence('build-game', 'optimize');
 });
 
-gulp.task("build", function(callback) {
+gulp.task("build-game", function(callback) {
 	var myConfig = Object.create(webpackConfig);
 	myConfig.plugins = myConfig.plugins.concat(
 		new webpack.DefinePlugin({
@@ -42,6 +40,18 @@ gulp.task("build", function(callback) {
 		}));
 		callback();
 	});
+});
+
+gulp.task("development", function() { 
+	runSequence(['dev-server']);
+});
+
+gulp.task("templates", function(callback) { 
+	gulp.src('src/*.jade')
+		.pipe(jade({
+			locals: {}
+		}))
+		.pipe(gulp.dest('build/'));
 });
 
 gulp.task("dev-server", function(callback) {

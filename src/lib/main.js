@@ -9,6 +9,7 @@ import {Game} from './modules/game';
 import {I18n} from './modules/i18n';
 import {Logo} from './modules/logo';
 import {Sprite} from './modules/sprite';
+import {Promiser} from './modules/promiser';
 import {Toggle} from './modules/toggle';
 import {Utils} from './modules/utils';
 // this include the default framework messages
@@ -28,6 +29,7 @@ exports = module.exports = {
 	I18n,
 	lang,
 	Logo,
+	Promiser,
 	MessageBundles,	
 	Toggle,
 	Sprite,
