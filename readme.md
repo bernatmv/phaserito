@@ -33,8 +33,7 @@ This section is still a WIP
 - [ ] [Fullscreen](#fullscreen) component
 - [ ] [Ads manager](#ads) component
 - [ ] [Orientation](#orientation) component
-- [ ] [Google Analytics](#analytics) component
-- [ ] [Crazy Egg](#crazyegg) component
+- [x] [Google Analytics](#analytics) component **documentation pending**
 - [ ] [SD and HD](#sdhd) automatization component
 
 ### Documentation & examples

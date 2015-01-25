@@ -58,7 +58,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			config: {
-				foo: "templating test"
+				googleAnalytics: "UA-58578359-1"
 			},
 			template: 'src/index.html',
       		filename: 'index.html'
