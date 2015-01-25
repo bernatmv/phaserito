@@ -9,7 +9,7 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 
 ## What's in it?
 
-### Build process
+### External packages for the build process
 
 - [x] [NPM](https://github.com/npm/npm) to install dependencies
 - [x] [Webpack](https://github.com/webpack) and [Gulp](https://github.com/gulpjs/gulp) manage the automated build process with bundling and sourcemaps. Production-ready with dedupe and uglify webpack plugins.
@@ -25,7 +25,7 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 - [x] [HttpPlease](https://github.com/matthewwithanm/httpplease.js) for all Http requests
 - [x] [Console Polyfill](https://github.com/paulmillr/console-polyfill) for older IE browsers
 
-### Components
+### Components to extend Phaser features
 
 This section is still a WIP
 
@@ -33,10 +33,11 @@ This section is still a WIP
 - [ ] [Fullscreen](#fullscreen) component
 - [ ] [Ads manager](#ads) component
 - [ ] [Orientation](#orientation) component
+- [ ] [Dialogs](#dialogs) component
 - [x] [Google Analytics](#analytics) component **documentation pending**
 - [ ] [SD and HD](#sdhd) automatization component
 
-### Documentation & examples
+### Project boilerplate: documentation
 
 This section is still a WIP
 
