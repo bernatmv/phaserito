@@ -36,3 +36,6 @@ Icon?
 
 # .work directory
 /.work
+
+# generated stats file
+/stats.json
