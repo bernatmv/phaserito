@@ -18,7 +18,7 @@ var webpackConfig = require("./webpack.config.js");
 gulp.task("default", ["development"]);
 
 gulp.task("build", function() { 
-	runSequence('build-game', 'optimize');
+	runSequence('build-game');
 });
 
 gulp.task("build-game", function(callback) {
@@ -110,15 +110,6 @@ gulp.task("localtunnel", function(callback) {
 			gutil.log("[localtunnel]", tunnel.url + "/webpack-dev-server/  ->  with LiveReload");
 		});
 	});
-});
-
-gulp.task("optimize", function(callback) {
-    return gulp.src('./build/**/*.png')
-        .pipe(imagemin({
-            progressive: true,
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('build'));
 });
 
 gulp.task("cocoon", ["build"], function(callback) {

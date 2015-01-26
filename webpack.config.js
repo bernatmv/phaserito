@@ -33,7 +33,7 @@ module.exports = {
 			{ test: /\.json$/i, exclude: /\.audiosprite\.json$/i, loader: 'json' },
 			{ test: /\.css$/i, loader: 'style!css' },
 			{ test: /\.less$/i, loader: 'style!css!less' },
-			{ test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[path][name].[ext]?[hash]' },
+			{ test: /\.(jpe?g|png|gif)$/i, loader: 'image?bypassOnDebug&name=[path][name].[ext]?[hash]' },
 			{ test: /\.(mp3|ac3|ogg|m4a)$/i, loader: 'file?name=[path][name].[ext]?[hash]' },
 			{ test: /\.(ttf|woff|eot)$/i, loader: 'file?name=[path][name].[ext]?[hash]' },
 			{ test: /\.audiosprite\.json$/i, loader: 'file?name=[path][name].[ext]?[hash]' }
