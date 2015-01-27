@@ -14,7 +14,7 @@ export class Boot extends Phaser.State {
 		if (Phaser.Plugin.Debug){
 			this.game.add.plugin(Phaser.Plugin.Debug);
 		}
-		this.game.component.load("test");
+		this.game.component.load("soundManager");
 		// start loading state
 		this.game.state.start('Loading');
 	}

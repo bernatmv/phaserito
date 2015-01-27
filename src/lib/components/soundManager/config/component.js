@@ -3,7 +3,7 @@ var _HOST = window.location.hostname;
 module.exports = function (theme, lang) {
 	return {
 		component: {
-			test: {
+			soundManager: {
 				
 			}
 		},
