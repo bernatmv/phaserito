@@ -69,6 +69,14 @@ Go to the project folder and install all the dependencies using NPM:
 You are now ready to run Phaserito for the first time! just type:
 
     gulp
+    
+Run the test
+
+    gulp test
+    
+Test driven development 
+
+    gulp tdd
 
 ## Documentation
 
