@@ -40,6 +40,7 @@ module.exports = {
 		extensions: ['', '.js']
 	},
 	plugins: [
+		new webpack.optimize.CommonsChunkPlugin('vendor', 'libs/phaserito.vendor.js'),
 		new webpack.ProvidePlugin({
 			console: 'imports?this=>window!exports?window.console!console-polyfill',
 			Promise: 'bluebird',
