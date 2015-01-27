@@ -26,10 +26,7 @@ module.exports = function (lang) {
 				antialias: true,
 				physicsConfig: null
 			}
-		},
-
-		atlases: require("./atlases/index.js")(lang),
-		sprites: require("./sprites.js")(lang)
+		}
 	};
 };
 
