@@ -34,7 +34,6 @@ module.exports = function(config) {
 		// list of files / patterns to load in the browser
 		files: [
 			'../cirsa_builds/libs/traceur-runtime.js',
-			'node_modules/jquery/dist/jquery.js',
 			'node_modules/phaser/dist/phaser-arcade-physics.js',
 			'node_modules/phaser-debug/dist/phaser-debug.js',
 			//'../cirsa_builds/libs/phasersito.vendor.js',

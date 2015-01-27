@@ -37,3 +37,7 @@ Icon?
 # .work directory
 /.work
 reports/
+
+
+# generated stats file
+/stats.json
