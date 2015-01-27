@@ -3,6 +3,9 @@
 Phaserito is a template to boost any [Phaser.js](http://phaser.io/) game development.
 Phaserito can help you with your starting project structure and build process.
 
+[![Build Status](https://travis-ci.org/bernatmv/phaserito.svg?branch=master)](https://travis-ci.org/bernatmv/phaserito.svg?branch=master)
+
+
 ## IMPORTANT
 
 Phaserito is heavily based on the work of **[Nestor Hernández](https://github.com/nesukun)** (Phasercito) and on top of the amazing [Phaser.js](http://phaser.io/) framework by **[Richard Davey](https://github.com/photonstorm)** of [Photonstorm](http://www.photonstorm.com/). You can find **[Phaser on github](https://github.com/photonstorm/phaser)** and contact Photonstorm [via Twitter](https://twitter.com/photonstorm) or on the [Phaser forums](http://www.html5gamedevs.com/forum/14-phaser/).
