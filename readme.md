@@ -24,6 +24,9 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 - [x] [AudioSprite](https://github.com/tonistiigi/audiosprite) to create and work with audiosprites
 - [x] [HttpPlease](https://github.com/matthewwithanm/httpplease.js) for all Http requests
 - [x] [Console Polyfill](https://github.com/paulmillr/console-polyfill) for older IE browsers
+- [x] [Karma](https://github.com/karma-runner/karma) Test runner
+- [x] [Karma-webpack](https://github.com/webpack/karma-webpack) Karma adapter for webpack
+
 
 ### Components to extend Phaser features
 
@@ -69,6 +72,14 @@ Go to the project folder and install all the dependencies using NPM:
 You are now ready to run Phaserito for the first time! just type:
 
     gulp
+    
+Run the test
+
+    gulp test
+    
+Test driven development 
+
+    gulp tdd
 
 ## Documentation
 
