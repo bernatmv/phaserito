@@ -18,6 +18,7 @@ module.exports = function(config) {
 
 			'karma-chrome-launcher',
 			'karma-phantomjs-launcher',
+			'karma-firefox-launcher',
 		],
 		// base path, that will be used to resolve files and exclude
 		basePath: '',
