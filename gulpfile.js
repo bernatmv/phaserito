@@ -1,5 +1,5 @@
 /**
- * Based on the work of 
+ * Based on the work of
  * Nestor Hernandez Ojeda (Phasercito)
  */
 var gulp = require("gulp");
@@ -10,12 +10,13 @@ var path = require("path");
 var runSequence = require('run-sequence');
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
+var karma = require('karma').server;
 // WebPack configuration
 var webpackConfig = require("./webpack.config.js");
 
 gulp.task("default", ["development"]);
 
-gulp.task("build", function() { 
+gulp.task("build", function() {
 	runSequence('build-game');
 });
 
@@ -40,11 +41,11 @@ gulp.task("build-game", function(callback) {
 	});
 });
 
-gulp.task("development", function() { 
+gulp.task("development", function() {
 	runSequence(['dev-server']);
 });
 
-gulp.task("templates", function(callback) { 
+gulp.task("templates", function(callback) {
 	gulp.src('src/*.jade')
 		.pipe(jade({
 			locals: {}
@@ -114,4 +115,20 @@ gulp.task("cocoon", ["build"], function(callback) {
 	return gulp.src('./build/**/*')
 		.pipe(zip('dist.zip'))
 		.pipe(gulp.dest('./build'));
+});
+
+
+gulp.task('test', function(done) {
+	karma.start({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: true
+	}, done);
+});
+
+gulp.task('tdd', function(done) {
+	karma.start({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: false,
+		autoWatch: true
+	}, done);
 });
