@@ -4,8 +4,6 @@
  */
 var gulp = require("gulp");
 var gutil = require("gulp-util");
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
 var zip = require('gulp-zip');
 var localtunnel = require('localtunnel');
 var path = require("path");
