@@ -25,13 +25,14 @@
     "gulp-zip": "~2.0.2",
     "html-webpack-plugin": "^1.1.0",
     "image-webpack-loader": "^1.2.0",
-    "istanbul": "^0.3.5",
     "imports-loader": "^0.6.3",
+    "istanbul": "^0.3.5",
     "istanbul-instrumenter-loader": "^0.1.2",
     "json-loader": "~0.5.1",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.5",
     "karma-coverage": "^0.2.7",
+    "karma-firefox-launcher": "^0.1.4",
     "karma-htmlfile-reporter": "^0.1.2",
     "karma-jasmine": "^0.3.1",
     "karma-phantomjs-launcher": "^0.1.4",
@@ -50,5 +51,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/bernatmv/phaserito.git"
+  },
+  "scripts": {
+    "test": "gulp travis"
   }
 }
