@@ -122,3 +122,11 @@ gulp.task('tdd', function(done) {
 		autoWatch: true
 	}, done);
 });
+
+gulp.task('travis', function(done) {
+	karma.start({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: true,
+		browsers: ['Firefox']
+	}, done);
+});
