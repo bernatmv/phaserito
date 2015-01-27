@@ -1,6 +1,6 @@
 /**
- * Based on the work of 
- * Nestor Hernandez Ojeda (Phasercito)
+ * Based on the work of
+ * Nestor Hernandez Ojeda (Phasersito)
  */
 var gulp = require("gulp");
 var gutil = require("gulp-util");
@@ -15,7 +15,7 @@ var webpackConfig = require("./webpack.config.js");
 
 gulp.task("default", ["development"]);
 
-gulp.task("build", function() { 
+gulp.task("build", function() {
 	runSequence('build-game');
 });
 
@@ -40,16 +40,8 @@ gulp.task("build-game", function(callback) {
 	});
 });
 
-gulp.task("development", function() { 
+gulp.task("development", function() {
 	runSequence(['dev-server']);
-});
-
-gulp.task("templates", function(callback) { 
-	gulp.src('src/*.jade')
-		.pipe(jade({
-			locals: {}
-		}))
-		.pipe(gulp.dest('build/'));
 });
 
 gulp.task("dev-server", function(callback) {
@@ -81,8 +73,6 @@ gulp.task("serve-ie9", function(callback) {
 			colors: true
 		}
 	}).listen(8080, "0.0.0.0", function(err) {
-		// TIP: change from "Localhost" to 0.0.0.0 to allow express to catch all request, not only the localhost/127.0.0.1.
-		// This is really useful for test in Virtual Machine.
 		if (err) throw new gutil.PluginError("webpack-dev-server", err);
 		gutil.log("[dev-server]", "http://localhost:8080/  ->  Root");
 		gutil.log("[dev-server]", "http://localhost:8080/webpack-dev-server/  ->  with LiveReload");
