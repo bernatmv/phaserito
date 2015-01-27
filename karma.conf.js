@@ -19,6 +19,8 @@ module.exports = function(config) {
 			'karma-chrome-launcher',
 			'karma-phantomjs-launcher',
 			'karma-firefox-launcher',
+
+			'karma-coveralls'
 		],
 		// base path, that will be used to resolve files and exclude
 		basePath: '',
@@ -30,11 +32,10 @@ module.exports = function(config) {
 			'src/**/*.js': ['webpack']
 		},
 
-		reporters: ['progress', 'coverage', 'html'],
+		reporters: ['progress', 'coverage', 'html', 'coveralls'],
 
 		// list of files / patterns to load in the browser
 		files: [
-			'../cirsa_builds/libs/traceur-runtime.js',
 			'node_modules/phaser/dist/phaser-arcade-physics.js',
 			'node_modules/phaser-debug/dist/phaser-debug.js',
 			//'../cirsa_builds/libs/phasersito.vendor.js',
