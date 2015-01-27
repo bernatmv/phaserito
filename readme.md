@@ -24,6 +24,9 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 - [x] [AudioSprite](https://github.com/tonistiigi/audiosprite) to create and work with audiosprites
 - [x] [HttpPlease](https://github.com/matthewwithanm/httpplease.js) for all Http requests
 - [x] [Console Polyfill](https://github.com/paulmillr/console-polyfill) for older IE browsers
+- [x] [Karma](https://github.com/karma-runner/karma) Test runner
+- [x] [Karma-webpack](https://github.com/webpack/karma-webpack) Karma adapter for webpack
+
 
 ### Components to extend Phaser features
 
