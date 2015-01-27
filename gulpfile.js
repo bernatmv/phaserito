@@ -7,7 +7,6 @@ var gutil = require("gulp-util");
 var zip = require('gulp-zip');
 var localtunnel = require('localtunnel');
 var path = require("path");
-var runSequence = require('run-sequence');
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 var karma = require('karma').server;
@@ -16,11 +15,7 @@ var webpackConfig = require("./webpack.config.js");
 
 gulp.task("default", ["development"]);
 
-gulp.task("build", function() {
-	runSequence('build-game');
-});
-
-gulp.task("build-game", function(callback) {
+gulp.task("build", function(callback) {
 	var myConfig = Object.create(webpackConfig);
 	myConfig.plugins = myConfig.plugins.concat(
 		new webpack.DefinePlugin({
@@ -41,11 +36,7 @@ gulp.task("build-game", function(callback) {
 	});
 });
 
-gulp.task("development", function() {
-	runSequence(['dev-server']);
-});
-
-gulp.task("dev-server", function(callback) {
+gulp.task("development", function(callback) {
 	var myConfig = Object.create(webpackConfig);
 	myConfig.devtool = "eval";
 	myConfig.debug = true;

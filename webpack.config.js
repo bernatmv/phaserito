@@ -4,16 +4,12 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
 
-var isDirectory = function (file) {
-	return fs.statSync(path.join('./src/games/', file)).isDirectory();
-};
-
 module.exports = {
 	cache: false,
 	context: path.join(__dirname, 'src'),
 	entry: {
 		'vendor': [
-		'phaser'
+			'phaser'
 		],
 		'src/js': './js/main.js'
 	},
@@ -44,6 +40,7 @@ module.exports = {
 		extensions: ['', '.js']
 	},
 	plugins: [
+		new webpack.optimize.CommonsChunkPlugin('vendor', 'libs/phaserito.vendor.js'),
 		new webpack.ProvidePlugin({
 			console: 'imports?this=>window!exports?window.console!console-polyfill',
 			Promise: 'bluebird',
@@ -55,7 +52,7 @@ module.exports = {
 				googleAnalytics: "UA-58578359-1"
 			},
 			template: 'src/index.html',
-      filename: 'index.html'
+      		filename: 'index.html'
 		})
 	]
 };
