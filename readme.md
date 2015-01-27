@@ -3,6 +3,7 @@
 Phaserito is a template to boost any [Phaser.js](http://phaser.io/) game development.
 Phaserito can help you with your starting project structure and build process.
 
+[![Build Status](https://travis-ci.org/bernatmv/phaserito.svg?branch=master)](https://travis-ci.org/bernatmv/phaserito.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/bernatmv/phaserito/badge.svg)](https://coveralls.io/r/bernatmv/phaserito)
 
 ## IMPORTANT
