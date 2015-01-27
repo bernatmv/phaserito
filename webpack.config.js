@@ -7,12 +7,7 @@ var StatsPlugin = require('stats-webpack-plugin');
 module.exports = {
 	cache: false,
 	context: path.join(__dirname, 'src'),
-	entry: {
-		'vendor': [
-			'phaser'
-		],
-		'src/js': './js/main.js'
-	},
+	entry: './js/main',
 	output: {
 		path: path.join(__dirname, './build'),
 		publicPath: '/',
@@ -21,7 +16,6 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.js$/i, exclude: /node_modules/i, loader: 'traceur?experimental&arrayComprehension&runtime' },
-			{ test: /(phaser-arcade-physics|phaser-debug)(\.min)?\.js$/i, loader: 'script' },
 			{ test: /\.json$/i, exclude: /\.audiosprite\.json$/i, loader: 'json' },
 			{ test: /\.css$/i, loader: 'style!css' },
 			{ test: /\.less$/i, loader: 'style!css!less' },
@@ -33,16 +27,24 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			'phaserito': path.join(__dirname, 'src/lib/main.js'),
-			'phaser': path.join(__dirname, 'node_modules/phaser/dist/phaser-arcade-physics.js'),
-			'phaser-debug': path.join(__dirname, 'node_modules/phaser-debug/dist/phaser-debug.js')
+			'phaserito': path.join(__dirname, 'src/lib/main'),
+			'phaser': path.join(__dirname, 'node_modules/phaser/dist/phaser-arcade-physics'),
+			'phaser-debug': path.join(__dirname, 'node_modules/phaser-debug/dist/phaser-debug')
 		},
 		extensions: ['', '.js']
 	},
+  resolveLoader: {
+      alias: {
+          "phaser-webpack-loader": path.join(__dirname, "tools/phaser-webpack-loader"),
+          "phaser-debug-webpack-loader": path.join(__dirname, "tools/phaser-debug-webpack-loader")
+      }
+  },
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin('vendor', 'libs/phaserito.vendor.js'),
 		new webpack.ProvidePlugin({
 			console: 'imports?this=>window!exports?window.console!console-polyfill',
+			Phaser: 'phaser-webpack-loader!exports?exports.Phaser!phaser',
+			PhaserDebug: 'phaser-debug-webpack-loader!imports?require=>false!phaser-debug',
+			PIXI: 'phaser-webpack-loader!exports?exports.PIXI!phaser',
 			Promise: 'bluebird',
 			Phaserito: 'phaserito'
 		}),
@@ -52,7 +54,7 @@ module.exports = {
 				googleAnalytics: "UA-58578359-1"
 			},
 			template: 'src/index.html',
-      		filename: 'index.html'
+      filename: 'index.html'
 		})
 	]
 };
