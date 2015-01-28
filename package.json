@@ -21,6 +21,7 @@
     "file-loader": "~0.8.1",
     "gulp": "~3.8.10",
     "gulp-karma": "0.0.4",
+    "gulp-plato": "^1.0.2",
     "gulp-util": "~3.0.2",
     "gulp-zip": "~2.0.2",
     "html-webpack-plugin": "^1.1.0",
