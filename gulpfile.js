@@ -40,7 +40,6 @@ gulp.task("development", function(callback) {
 	var myConfig = Object.create(webpackConfig);
 	myConfig.devtool = "eval";
 	myConfig.debug = true;
-	myConfig.entry.vendor.push("phaser-debug");
 
 	new WebpackDevServer(webpack(myConfig), {
 		contentBase: path.join(__dirname, "./build"),
@@ -77,7 +76,6 @@ gulp.task("localtunnel", function(callback) {
 		var myConfig = Object.create(webpackConfig);
 		myConfig.devtool = "eval";
 		myConfig.debug = true;
-		myConfig.entry.vendor.push("phaser-debug");
 
 		new WebpackDevServer(webpack(myConfig), {
 			contentBase: path.join(__dirname, "./build"),
