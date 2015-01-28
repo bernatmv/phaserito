@@ -83,6 +83,10 @@ Run the test
 Test driven development 
 
     gulp tdd
+    
+Software complexity with plato 
+
+    gulp plato
 
 ## Documentation
 
