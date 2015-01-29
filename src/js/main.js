@@ -1,16 +1,42 @@
-import {States} from './states/';
-import {MessageBundles} from '../config/lang/';
+import {
+	States
+}
+from './states/';
+import {
+	MessageBundles
+}
+from '../config/lang/';
 
+/**
+ * Entry point
+ * @Class LovelyDogGame
+ */
 class LovelyDogGame extends Phaserito.Game {
+	/**
+	 * @construct LovelyDogGame
+	 */
 	constructor() {
-		// the default language tags of the game
-		var lang = MessageBundles;
-		// the config of the game
-		var config = require("../config/game.js")(Phaserito.lang);
-		// the states of the game
-		var states = States;
+		/**
+		 * the default language tags of the game
+		 * @member {String} LovelyDogGame#lang
+		 */
+		this.lang = MessageBundles;
 
-		super({config, lang, states});
+		/**
+		 * the config of the game
+		 * @member {Object} LovelyDogGame#config
+		 */
+		this.config = require("../config/game.js")(Phaserito.lang);
+
+		/**
+		 * the states of the game
+		 * @member {Object} LovelyDogGame#states
+		 */
+		this.states = States;
+
+		super({
+			config, lang, states
+		});
 	}
 }
 
