@@ -5,7 +5,7 @@ import {Utils} from "../../modules/utils";
 /**
  * This class adds objects to manage both for FX and Music volumes
  */
-export class SoundManager {
+export class SoundManager extends Phaser.SoundManager {
 	/**
 	 * Constructor of the Class
 	 * @param  {Object} options.game: game          The instance of a Phaserito.Game or Phaser.Game
@@ -15,8 +15,9 @@ export class SoundManager {
 	 * @return {SoundManager}         The instance of the class
 	 */
 	constructor({ game: game = {}, locale: locale = 'en', theme: theme = 'default', group: group = undefined }) {
+		// call parent
+		super(game);
 		// save params to properties
-		this.game = game;
 		this.group = group;
 		this.locale = locale;
 		this.theme = theme;
@@ -65,7 +66,7 @@ export class SoundManager {
 	 * @param {Number} options.x:     x     The x position of the group containing the manager
 	 * @param {Number} options.y:     y     The y position of the group containing the manager
 	 * @param {Number} options.steps: steps The number of volume steps on the manager (eg: 10 steps is the default option and each step will represent a 10% of the volume)
-	 * @return {SoundManager} return itself for piping
+	 * @return {SoundManager} Return itself for piping
 	 */
 	addManager({type: type = 'fx', x: x = 0, y: y = 0, steps: steps = 10}) {
 		if (steps > 1) {
@@ -75,25 +76,41 @@ export class SoundManager {
 			var callback = (type === 'fx') ? this.setFxVolume : this.setMusicVolume;
 			// layout manager
 //			this.bar[type].off = group.add(new Button(this.game, x, y, 'soundManager', () => { callback(0); }, this, type+'OffHover', type+'OffOut', type+'OffDown'));
-			this.bar[type].off = group.add(new Button(this.game, x, y, 'soundManager', () => { callback(0); }, this, type+'Off', type+'Off', type+'Off'));
-			this.bar[type].sprites.back[0] = group.add(new Button(this.game, x, y, 'soundManager', () => { callback(1); }, this, 'barLeftBack', 'barLeftBack', 'barLeftBack'));
+			this.bar[type].off = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: 0}); }, this, type+'Off', type+'Off', type+'Off'));
+			this.bar[type].sprites.back[0] = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: 1}); }, this, 'barLeftBack', 'barLeftBack', 'barLeftBack'));
 			this.bar[type].sprites.fore[0] = group.add(new Sprite(this.game, x, y, 'soundManager', 'barLeftFore'));
 			for (var i = 1; i < steps-1; i++) {
-				this.bar[type].sprites.back[i] = group.add(new Button(this.game, x, y, 'soundManager', ((i) => { return () => { callback(i+1)} })(i), this, 'barMiddleBack', 'barMiddleBack', 'barMiddleBack'));
+				this.bar[type].sprites.back[i] = group.add(new Button(this.game, x, y, 'soundManager', ((i) => { return () => { this.setVolume({type, volume: i+1}); } })(i), this, 'barMiddleBack', 'barMiddleBack', 'barMiddleBack'));
 				this.bar[type].sprites.fore[i] = group.add(new Sprite(this.game, x, y, 'soundManager', 'barMiddleFore'));
 			}
-			this.bar[type].sprites.back[steps-1] = group.add(new Button(this.game, x, y, 'soundManager', () => { callback(steps); }, this, 'barRightBack', 'barRightBack', 'barRightBack'));
+			this.bar[type].sprites.back[steps-1] = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: steps}); }, this, 'barRightBack', 'barRightBack', 'barRightBack'));
 			this.bar[type].sprites.fore[steps-1] = group.add(new Sprite(this.game, x, y, 'soundManager', 'barRightFore'));
-			this.bar[type].on = group.add(new Button(this.game, x, y, 'soundManager', () => { callback(steps); }, this, type+'On', type+'On', type+'On'));
+			this.bar[type].on = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: steps}); }, this, type+'On', type+'On', type+'On'));
 			// hide fore figures not included in actual volume
-			for (var j = this.bar[type].volume; j < steps; j++) {
-				this.bar[type].sprites.fore[j].visible = false;
-			}
+			this.__displayVolumeBar(type);
 			// position elements
 			this.__positionElements({type, x, y});
 			// return this for piping
 			return this;
 		}
+	}
+
+	/**
+	 * Shows the fore figures that should be visible for this volume level (privately called)
+	 * @param  {String} options.type:   type          Type can take the values of "fx" or "music" and defines the type os manager to be added
+	 * @return {SoundManager} Return itself for piping
+	 */
+	__displayVolumeBar(type) {
+		// show fore figures included in actual volume
+		for (var j = 0; j < this.bar[type].volume; j++) {
+			this.bar[type].sprites.fore[j].visible = true;
+		}
+		// hide fore figures not included in actual volume
+		for (var j = this.bar[type].volume; j < this.bar[type].sprites.fore.length; j++) {
+			this.bar[type].sprites.fore[j].visible = false;
+		}
+		// return this for piping
+		return this;
 	}
 
 	/**
@@ -111,7 +128,6 @@ export class SoundManager {
 			var offsetY = (sound.getBounds().height - left.getBounds().height) / 2;
 			var middleWidth = middle.getBounds().width;
 			var steps = this.bar[type].sprites.back.length;
-			console.debug(x, y, offsetX, offsetY, middleWidth);
 			// position elements
 			this.bar[type].off.position = new Phaser.Point(x, y);
 			this.bar[type].sprites.back[0].position = new Phaser.Point(offsetX+x, y+offsetY);
@@ -128,23 +144,30 @@ export class SoundManager {
 	}
 
 	// TODO:
+	// Add the option to set a mute button as standalone for fx and another for music
 	// Add music, for the moment only one track on a loop
 	// Music volume affects only music, fx volume affects every volume (even music)
 	// 
 	// add(key, volume, loop, connect)
-	// addSprite(key)
 	// play(key, volume, loop)
-	// 
-	// volume :number
-	// Gets or sets the global volume of the SoundManager, a value between 0 and 1.
 	// 
 	// http://docs.phaser.io/Phaser.SoundManager.html
 
-	setFxVolume(volume) {
-		console.debug(volume);
+	setVolume({type: type = 'fx', volume: volume = 5}) {
+		return (type === 'fx') ? this.__setFxVolume(volume) : this.__setMusicVolume(volume);
 	}
 
-	setMusicVolume(volume) {
-		console.debug(volume);
+	__setFxVolume(volumeStep) {
+		this.bar.fx.volume = volumeStep;
+		this.__displayVolumeBar('fx');
+		// this volume affects the whole application, including the music
+		console.debug(volumeStep / this.bar.fx.sprites.fore.length);
+		//console.debug(this.volume);
+		//this.volume = (volumeStep / this.bar.fx.sprites.fore.length);
+	}
+
+	__setMusicVolume(volumeStep) {
+		this.bar.music.volume = volumeStep;
+		this.__displayVolumeBar('music');
 	}
 }
