@@ -34,8 +34,13 @@ class LovelyDogGame extends Phaserito.Game {
 		 */
 		this.states = States;
 
+		/**
+		 * call the constructor of the parent class
+		 */
 		super({
-			config, lang, states
+			config: this.config, 
+			lang: this.lang, 
+			states: this.states
 		});
 	}
 }
