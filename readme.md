@@ -3,6 +3,10 @@
 Phaserito is a template to boost any [Phaser.js](http://phaser.io/) game development.
 Phaserito can help you with your starting project structure and build process.
 
+[![Build Status](https://travis-ci.org/bernatmv/phaserito.svg?branch=master)](https://travis-ci.org/bernatmv/phaserito.svg?branch=master)
+[![Code Climate](https://codeclimate.com/github/bernatmv/phaserito/badges/gpa.svg)](https://codeclimate.com/github/bernatmv/phaserito)
+[![Coverage Status](https://coveralls.io/repos/bernatmv/phaserito/badge.svg)](https://coveralls.io/r/bernatmv/phaserito)
+
 ## IMPORTANT
 
 Phaserito is heavily based on the work of **[Nestor Hernández](https://github.com/nesukun)** (Phasercito) and on top of the amazing [Phaser.js](http://phaser.io/) framework by **[Richard Davey](https://github.com/photonstorm)** of [Photonstorm](http://www.photonstorm.com/). You can find **[Phaser on github](https://github.com/photonstorm/phaser)** and contact Photonstorm [via Twitter](https://twitter.com/photonstorm) or on the [Phaser forums](http://www.html5gamedevs.com/forum/14-phaser/).
@@ -24,6 +28,9 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 - [x] [AudioSprite](https://github.com/tonistiigi/audiosprite) to create and work with audiosprites
 - [x] [HttpPlease](https://github.com/matthewwithanm/httpplease.js) for all Http requests
 - [x] [Console Polyfill](https://github.com/paulmillr/console-polyfill) for older IE browsers
+- [x] [Karma](https://github.com/karma-runner/karma) Test runner
+- [x] [Karma-webpack](https://github.com/webpack/karma-webpack) Karma adapter for webpack
+
 
 ### Components to extend Phaser features
 
@@ -69,6 +76,18 @@ Go to the project folder and install all the dependencies using NPM:
 You are now ready to run Phaserito for the first time! just type:
 
     gulp
+    
+Run the test
+
+    gulp test
+    
+Test driven development 
+
+    gulp tdd
+    
+Software complexity with plato 
+
+    gulp plato
 
 ## Documentation
 

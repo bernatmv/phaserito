@@ -11,8 +11,8 @@ export class Boot extends Phaser.State {
 		this.game.stage.disableVisibilityChange = true;
 		this.game.input.maxPointers = 1;
 		// load game plugins
-		if (Phaser.Plugin.Debug){
-			this.game.add.plugin(Phaser.Plugin.Debug);
+		if (PhaserDebug){
+			this.game.add.plugin(PhaserDebug);
 		}
 		this.game.component.load("soundManager");
 		// start loading state
@@ -21,13 +21,13 @@ export class Boot extends Phaser.State {
 
 	init() {
 		if (this.game.device.desktop) {
-			this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE; 
+			this.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
 		}
 		else {
 			this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		}
 //		this.scale.setMinMax(320, 480, 640, 960);
-		this.scale.pageAlignVertically = true; 
+		this.scale.pageAlignVertically = true;
 		this.scale.pageAlignHorizontally = true;
 	}
 
