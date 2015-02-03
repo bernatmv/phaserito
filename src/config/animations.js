@@ -1,2 +1,4 @@
-exports = module.exports = {
+module.exports = function (lang) {
+	return [
+	];
 };

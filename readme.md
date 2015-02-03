@@ -56,6 +56,12 @@ This section is still a WIP
 - [ ] [Scale](#scale) documentation
 - [ ] [Image optimization](#image-optimization) documentation
 - [ ] [Cocoon build](#cocoon-build) documentation
+- [ ] [Atlases](#atlases) documentation
+- [ ] [Audiosprites](#audiosprites) documentation
+
+### What's in the future?
+
+- [ ] [Webcam](#webcam) proposal
 
 ## Installing
 

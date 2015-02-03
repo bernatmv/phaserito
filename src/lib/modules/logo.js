@@ -17,11 +17,11 @@ export class Logo extends Phaser.Group {
 		this.logoMask = this.game.add.graphics(this.game.world.centerX + 280, this.game.world.centerY, this);
 		this.logoMask.beginFill(0xffffff);
 		this.logoMask.lineStyle(10, 0xffffff, 1);
-		this.logoMask.moveTo(-125, -150);
-		this.logoMask.lineTo(-75, -150);
-		this.logoMask.lineTo(125, 150);
-		this.logoMask.lineTo(75, 150);
-		this.logoMask.lineTo(-125, -150);
+		this.logoMask.moveTo(-130, -150);
+		this.logoMask.lineTo(-70, -150);
+		this.logoMask.lineTo(80, 150);
+		this.logoMask.lineTo(20, 150);
+		this.logoMask.lineTo(-130, -150);
 		this.logoMask.endFill();
 
 		this.logoBright.mask = this.logoMask;

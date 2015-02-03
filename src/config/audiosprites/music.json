@@ -6,19 +6,14 @@
     "music.ac3"
   ],
   "spritemap": {
-    "music": {
+    "example1": {
       "start": 0,
-      "end": 72.07183673469387,
-      "loop": true
-    },
-    "mg-start": {
-      "start": 74,
-      "end": 78.14884353741496,
+      "end": 16.35265306122449,
       "loop": false
     },
-    "mg-end": {
-      "start": 80,
-      "end": 87.36,
+    "example2": {
+      "start": 18,
+      "end": 30.98392290249433,
       "loop": false
     }
   }

@@ -2,9 +2,10 @@ export class Sprite extends Phaser.Sprite {
 	constructor(game, x, y, key, frame) {
 		// call parent
 		super(game, x, y, key, frame);
-		// get config for animations/atlases
-		var config = this.game.config.phaserito.animations || this.game.config.phaserito.atlases;
-		if (config !== undefined) {
+		// get config for animations
+		var config = this.game.config.phaserito.animations;
+		// if there are animations defined, add them
+		if (config[key] !== undefined) {
 			var spriteAnimations = config[key];
 			for (let i = 0, l = spriteAnimations.length; i < l; i++){
 				let { name, frames, frameRate, speed = this.game.config.phaserito.game.defaultAnimationSpeed, loop, useNumericIndex } = spriteAnimations[i];

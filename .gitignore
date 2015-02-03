@@ -38,6 +38,8 @@ Icon?
 /.work
 reports/
 
-
 # generated stats file
 /stats.json
+
+# ignore ffmpeg
+/ffmpeg-win64-static

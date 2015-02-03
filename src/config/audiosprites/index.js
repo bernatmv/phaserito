@@ -10,15 +10,15 @@
 				require("../../assets/shared/effects.ogg")
 			]
 		},
+		*/
 		"music": {
 			data: require("!!file?name=[path][name].[ext]?[hash]!./music.json"),
 			urls: [
-				require("../../assets/shared/music.ac3"),
-				require("../../assets/shared/music.m4a"),
-				require("../../assets/shared/music.mp3"),
-				require("../../assets/shared/music.ogg")
+				require("../../assets/snd/music.ac3"),
+				require("../../assets/snd/music.m4a"),
+				require("../../assets/snd/music.mp3"),
+				require("../../assets/snd/music.ogg")
 			]
 		}
-		*/
 	};
 };

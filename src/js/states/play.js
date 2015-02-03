@@ -7,6 +7,8 @@ export class Play extends Phaser.State {
 		// Game begins
 		var soundManager = this.game.component.get("soundManager")
 			.addManager({x: 10, y: this.game.world.centerY})
-			.addManager({type: 'music', x: 10, y: this.game.world.centerY + 60});
+			.addManager({type: 'music', x: 10, y: this.game.world.centerY + 60})
+			.setMusic({laps: ['example1']})
+			.playMusic();
 	}
 }

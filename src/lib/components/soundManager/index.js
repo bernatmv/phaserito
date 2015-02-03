@@ -5,7 +5,7 @@ import {Utils} from "../../modules/utils";
 /**
  * This class adds objects to manage both for FX and Music volumes
  */
-export class SoundManager extends Phaser.SoundManager {
+export class SoundManager {
 	/**
 	 * Constructor of the Class
 	 * @param  {Object} options.game: game          The instance of a Phaserito.Game or Phaser.Game
@@ -15,15 +15,20 @@ export class SoundManager extends Phaser.SoundManager {
 	 * @return {SoundManager}         The instance of the class
 	 */
 	constructor({ game: game = {}, locale: locale = 'en', theme: theme = 'default', group: group = undefined }) {
-		// call parent
-		super(game);
 		// save params to properties
+		this.game = game;
 		this.group = group;
 		this.locale = locale;
 		this.theme = theme;
 		// get config and merge with general config
 		this.config = require('./config/component')(this.theme, this.locale);
 		this.game.config.phaserito = Utils.deepExtend(this.game.config.phaserito, this.config);
+		// music and laps
+		this.music = undefined;
+		this.laps = [];
+		// sound efects
+		this.sounds = undefined;
+		this.effects = [];
 		// init environment
 		this.__initEnvironment();
 	}
@@ -76,7 +81,7 @@ export class SoundManager extends Phaser.SoundManager {
 			var callback = (type === 'fx') ? this.setFxVolume : this.setMusicVolume;
 			// layout manager
 //			this.bar[type].off = group.add(new Button(this.game, x, y, 'soundManager', () => { callback(0); }, this, type+'OffHover', type+'OffOut', type+'OffDown'));
-			this.bar[type].off = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: 0}); }, this, type+'Off', type+'Off', type+'Off'));
+			this.bar[type].off = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: 0}); }, this, type+'OffHover', type+'OffOut', type+'OffDown'));
 			this.bar[type].sprites.back[0] = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: 1}); }, this, 'barLeftBack', 'barLeftBack', 'barLeftBack'));
 			this.bar[type].sprites.fore[0] = group.add(new Sprite(this.game, x, y, 'soundManager', 'barLeftFore'));
 			for (var i = 1; i < steps-1; i++) {
@@ -85,7 +90,7 @@ export class SoundManager extends Phaser.SoundManager {
 			}
 			this.bar[type].sprites.back[steps-1] = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: steps}); }, this, 'barRightBack', 'barRightBack', 'barRightBack'));
 			this.bar[type].sprites.fore[steps-1] = group.add(new Sprite(this.game, x, y, 'soundManager', 'barRightFore'));
-			this.bar[type].on = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: steps}); }, this, type+'On', type+'On', type+'On'));
+			this.bar[type].on = group.add(new Button(this.game, x, y, 'soundManager', () => { this.setVolume({type, volume: steps}); }, this, type+'OnHover', type+'OnOut', type+'OnDown'));
 			// hide fore figures not included in actual volume
 			this.__displayVolumeBar(type);
 			// position elements
@@ -161,13 +166,36 @@ export class SoundManager extends Phaser.SoundManager {
 		this.bar.fx.volume = volumeStep;
 		this.__displayVolumeBar('fx');
 		// this volume affects the whole application, including the music
-		console.debug(volumeStep / this.bar.fx.sprites.fore.length);
-		//console.debug(this.volume);
-		//this.volume = (volumeStep / this.bar.fx.sprites.fore.length);
+		this.game.sound.volume = (volumeStep / this.bar.fx.sprites.fore.length).toFixed(2);
 	}
 
 	__setMusicVolume(volumeStep) {
 		this.bar.music.volume = volumeStep;
 		this.__displayVolumeBar('music');
+	}
+
+	// add possibility to pass one lap with or w/o loop
+	// multiple laps with or w/o general loop
+	// music play and resume
+
+	setMusic({laps: laps = [], key: key = 'music', loop: loop = false}) {
+		this.music = this.game.add.audioSprite(key);
+		this.music.loop = loop;
+		this.laps = laps;
+		// return this for piping
+		return this;
+	}
+
+	playMusic() {
+		if (this.laps.length > 0) {
+			var lapName = this.laps.shift();
+			lap = this.music.play(lapName);
+			lap.volume = .05;
+			this.laps.push(lapName);
+			// lap.pause();
+			// lap.resume();
+		}
+		// return this for piping
+		return this;
 	}
 }
