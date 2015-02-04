@@ -26,6 +26,7 @@ export class SoundManager {
 		// music and laps
 		this.music = undefined;
 		this.laps = [];
+		this.currentLap = undefined;
 		// sound efects
 		this.sounds = undefined;
 		this.effects = [];
@@ -42,7 +43,7 @@ export class SoundManager {
 		this.bar = {
 			fx: {
 				group: undefined,
-				volume: 5,
+				volume: 10,
 				on: {},
 				off: {},
 				sprites: {
@@ -52,7 +53,7 @@ export class SoundManager {
 			},
 			music: {
 				group: undefined,
-				volume: 5,
+				volume: 10,
 				on: {},
 				off: {},
 				sprites: {
@@ -172,6 +173,17 @@ export class SoundManager {
 	__setMusicVolume(volumeStep) {
 		this.bar.music.volume = volumeStep;
 		this.__displayVolumeBar('music');
+		// this volume affects only the music
+		this.bar.music.volume = (volumeStep / this.bar.music.sprites.fore.length).toFixed(2);
+		this.currentLap && (this.currentLap.volume = this.__getMusicVolume());
+	}
+
+	__getFxVolume() {
+		return this.bar.fx.volume;
+	}
+
+	__getMusicVolume() {
+		return this.bar.music.volume;
 	}
 
 	// add possibility to pass one lap with or w/o loop
@@ -179,8 +191,9 @@ export class SoundManager {
 	// music play and resume
 
 	setMusic({laps: laps = [], key: key = 'music', loop: loop = false}) {
+		// load audiosprite
 		this.music = this.game.add.audioSprite(key);
-		this.music.loop = loop;
+		// save laps
 		this.laps = laps;
 		// return this for piping
 		return this;
@@ -188,14 +201,23 @@ export class SoundManager {
 
 	playMusic() {
 		if (this.laps.length > 0) {
+			// get first lap in the collection
 			var lapName = this.laps.shift();
-			lap = this.music.play(lapName);
-			lap.volume = .05;
+			// play lap
+			this.currentLap = this.music.play(lapName);			
+			this.currentLap.volume = this.__getMusicVolume();
+			// push the lap at the end of the collection
 			this.laps.push(lapName);
-			// lap.pause();
-			// lap.resume();
 		}
 		// return this for piping
 		return this;
+	}
+
+	pauseMusic() {
+		this.currentLap && this.currentLap.pause();
+	}
+
+	resumeMusic() {
+		this.currentLap && this.currentLap.resume();
 	}
 }
