@@ -150,16 +150,9 @@ export class SoundManager {
 	}
 
 	// TODO:
-	// Add the option to set a mute button as standalone for fx and another for music
-	// Add music, for the moment only one track on a loop
-	// Music volume affects only music, fx volume affects every volume (even music)
-	// 
-	// add(key, volume, loop, connect)
-	// play(key, volume, loop)
-	// 
-	// http://docs.phaser.io/Phaser.SoundManager.html
+	// Add the option to set a mute button as standalone for sound and another for music
 
-	setVolume({type: type = 'fx', volume: volume = 5}) {
+	setVolume({type: type = 'fx', volume: volume = 10}) {
 		return (type === 'fx') ? this.__setFxVolume(volume) : this.__setMusicVolume(volume);
 	}
 
@@ -167,23 +160,22 @@ export class SoundManager {
 		this.bar.fx.volume = volumeStep;
 		this.__displayVolumeBar('fx');
 		// this volume affects the whole application, including the music
-		this.game.sound.volume = (volumeStep / this.bar.fx.sprites.fore.length).toFixed(2);
+		this.game.sound.volume = this.__getFxVolume();
 	}
 
 	__setMusicVolume(volumeStep) {
 		this.bar.music.volume = volumeStep;
 		this.__displayVolumeBar('music');
 		// this volume affects only the music
-		this.bar.music.volume = (volumeStep / this.bar.music.sprites.fore.length).toFixed(2);
 		this.currentLap && (this.currentLap.volume = this.__getMusicVolume());
 	}
 
 	__getFxVolume() {
-		return this.bar.fx.volume;
+		return (this.bar.fx.volume / this.bar.fx.sprites.fore.length).toFixed(2);
 	}
 
 	__getMusicVolume() {
-		return this.bar.music.volume;
+		return (this.bar.music.volume / this.bar.music.sprites.fore.length).toFixed(2);
 	}
 
 	// add possibility to pass one lap with or w/o loop
@@ -208,6 +200,8 @@ export class SoundManager {
 			this.currentLap.volume = this.__getMusicVolume();
 			// push the lap at the end of the collection
 			this.laps.push(lapName);
+			this.currentLap.onMarkerComplete.addOnce(() => console.debug("aaa"), this);
+			this.currentLap.onStop.addOnce(() => console.debug("bbb"), this);
 		}
 		// return this for piping
 		return this;
