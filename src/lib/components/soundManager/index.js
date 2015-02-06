@@ -200,8 +200,10 @@ export class SoundManager {
 			this.currentLap.volume = this.__getMusicVolume();
 			// push the lap at the end of the collection
 			this.laps.push(lapName);
-			this.currentLap.onMarkerComplete.addOnce(() => console.debug("aaa"), this);
-			this.currentLap.onStop.addOnce(() => console.debug("bbb"), this);
+			// when the lap finishes, play the next one
+			if (!this.currentLap.onStop.has(this.playMusic, this)) {
+				this.currentLap.onStop.add(this.playMusic, this);
+			}
 		}
 		// return this for piping
 		return this;
