@@ -4,7 +4,7 @@ import {Utils} from './utils';
  *
  * TODO: in future versions the plugins should be included automatically based on the folders in the plugin/ directory
  */
-import {SoundManager} from '../components/soundManager';
+import {SoundDirector} from '../components/soundDirector';
 
 export class ComponentManager {
 	constructor({ game: game = {}, locale: locale = 'en', theme: theme = 'default' }) {
@@ -12,7 +12,7 @@ export class ComponentManager {
 		this.locale = locale;
 		this.theme = theme;
 		this.components = {
-			'soundManager': SoundManager
+			'soundDirector': SoundDirector
 		};
 	}
 
