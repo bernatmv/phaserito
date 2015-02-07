@@ -36,12 +36,14 @@ Phaserito is heavily based on the work of **[Nestor Hernández](https://github.c
 
 This section is still a WIP
 
-- [ ] [Volume manager](#volume) component
+- [ ] [Volume manager](#volume-manager) documentation
+- [ ] [Mute buttons](#mute-buttons) documentation
+- [ ] [Music director](#music-director) documentation
 - [ ] [Fullscreen](#fullscreen) component
 - [ ] [Ads manager](#ads) component
 - [ ] [Orientation](#orientation) component
 - [ ] [Dialogs](#dialogs) component
-- [x] [Google Analytics](#analytics) component **documentation pending**
+- [ ] [Google Analytics](#analytics) component **documentation pending**
 - [ ] [SD and HD](#sdhd) automatization component
 
 ### Project boilerplate: documentation

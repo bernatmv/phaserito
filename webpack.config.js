@@ -3,6 +3,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
+var config = require('./package.json');
 
 module.exports = {
 	cache: false,
@@ -51,7 +52,7 @@ module.exports = {
 		new StatsPlugin(path.join(__dirname, 'stats.json')),
 		new HtmlWebpackPlugin({
 			config: {
-				googleAnalytics: "UA-58578359-1"
+				googleAnalytics: config.google.analytics
 			},
 			template: 'src/index.html',
       filename: 'index.html'
