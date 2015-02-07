@@ -1,16 +1,13 @@
 {
   "name": "Phaserito",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Phaser.io Boilerplate using ES6, Traceur and Gulp",
   "author": "Lovely Dog Studio",
   "google": {
-    "analytics" : "UA-58578359-1"
+    "analytics": "UA-58578359-1"
   },
   "contributors": [
     {
-      "name": "Bernat Martinez",
-      "name": "Nestor Hernandez",
-      "name": "Abraham Alcaina",
       "name": "Xavi Serra"
     }
   ],
