@@ -50,6 +50,7 @@ This section is still a WIP
 
 This section is still a WIP
 
+- [ ] [Bower](#bower) distribution
 - [ ] [Config](#config) documentation
 - [ ] [Build](#build) documentation
 - [ ] [Dev server](#dev-server) documentation
